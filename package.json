@@ -1,0 +1,24 @@
+{
+  "name": "ai-functions",
+  "version": "1.0.0",
+  "description": "Library for Developing and Managing AI Functions (including OpenAI GPT4 / GPT3.5)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanclevenger/ai-functions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nathanclevenger/ai-functions/issues"
+  },
+  "homepage": "https://github.com/nathanclevenger/ai-functions#readme",
+  "dependencies": {
+    "openai-edge": "^1.1.0"
+  }
+}
