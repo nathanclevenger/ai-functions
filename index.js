@@ -5,23 +5,28 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 
-const completion = await openai.createChatCompletion({
-  model: 'gpt-3.5-turbo',
+console.time('openai')
+const response = await openai.createChatCompletion({
+  model: 'gpt-3.5-turbo-0613',
+  // model: 'gpt-4-0613',
   messages: [
     { role: 'system', content: 'You are a helpful assistant.' },
-    { role: 'user', content: 'Who won the world series in 2020?' },
-    {
-      role: 'assistant',
-      content: 'The Los Angeles Dodgers won the World Series in 2020.',
-    },
-    { role: 'user', content: 'Where was it played?' },
+    { role: 'user', content: 'List 2 possible blog post titles about APIs' },
+    // { role: 'assistant', content: 'The Los Angeles Dodgers won the World Series in 2020.' },
+    // { role: 'user', content: 'Where was it played?' },
   ],
   // max_tokens: 7,
-  temperature: 0,
+  // temperature: 0,
   // stream: true,
-}).then(res => res.json())
-
-console.log(completion.choices[0])
+  // go: true,
+})
+const completion = await response.json()
+console.timeEnd('openai')
+const processingTime = parseInt(response.headers.get('openai-processing-ms'))
+const status = response.status
+console.log({ processingTime, status })
+console.log(completion?.choices?.[0])
+console.log(completion?.error)
 
 export const runtime = {
 
