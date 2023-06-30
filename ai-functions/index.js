@@ -1,9 +1,13 @@
 import { Configuration, OpenAIApi } from 'openai-edge'
 
-
-
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
+  basePath: 'https://aihooks.dev/v1',
+  baseOptions: {
+    headers: {
+      'webhook-app-id': process.env.AIHOOKS_APP_ID
+    }
+  }
 })
 const openai = new OpenAIApi(configuration)
 
