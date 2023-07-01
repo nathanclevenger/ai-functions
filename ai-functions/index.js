@@ -17,7 +17,9 @@ const response = await openai.createChatCompletion({
   // model: 'gpt-4-0613',
   messages: [
     { role: 'system', content: 'You are a helpful assistant.' },
-    { role: 'user', content: 'List 2 possible blog post titles about APIs' },
+    // { role: 'user', content: 'Write an ES6 function to convert base16 to base62' },
+    { role: 'user', content: 'Write an ES6 function to do Fizz Buzz' },
+    // { role: 'user', content: 'List 2 possible blog post titles about APIs' },
     // { role: 'assistant', content: 'The Los Angeles Dodgers won the World Series in 2020.' },
     // { role: 'user', content: 'Where was it played?' },
   ],
