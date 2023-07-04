@@ -1,5 +1,4 @@
-// import {NodeVM,VM} from 'vm2'
-import { Module } from 'node:vm'
+import {NodeVM,VM} from 'vm2'
 
 export const javascriptEval = (code) => {
   //securely use vm2
