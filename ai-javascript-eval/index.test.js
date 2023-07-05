@@ -9,10 +9,10 @@ describe('AI', () => {
     assert.strictEqual(results, 2)
   })
 
-  it('should be ok', () => {
+  it('should be ok', async () => {
 
-    const results = javascriptEval(`await fetch('https://jsonplaceholder.typicode.com/todos/1').then(res => res.json())`)
-    console.log(results)
+    const results = javascriptEval(`fetch('https://jsonplaceholder.typicode.com/todos/1').then(res => res.json())`)
+    console.log(await results)
     assert.strictEqual(2, 2)
   })
 })
