@@ -22,5 +22,8 @@
   "dependencies": {
     "openai-edge": "^1.1.0",
     "vm2": "^3.9.19"
+  },
+  "devDependencies": {
+    "vitest": "^0.33.0"
   }
 }
