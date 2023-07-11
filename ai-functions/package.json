@@ -21,5 +21,8 @@
   "homepage": "https://github.com/nathanclevenger/ai-functions#readme",
   "dependencies": {
     "openai-edge": "^1.1.0"
+  },
+  "devDependencies": {
+    "vitest": "^0.33.0"
   }
 }
