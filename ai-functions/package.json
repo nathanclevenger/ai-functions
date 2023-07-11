@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "doppler run -- node index.js",
-    "test": "doppler run -- node --test"
+    "test": "doppler run -- vitest --globals"
   },
   "repository": {
     "type": "git",
