@@ -67,8 +67,34 @@ export const runtime = {
 
 }
 
-export const AI = (functionName, callback) => {
-    runtime[functionName] = callback
+export const AI = async (schema) => {
+  return new Proxy({}, {
+    get: (target, functionName) => {
+      console.log(`Called method: ${property}, with arguments: ${JSON.stringify(args)}`)
+      return ({functionName, args})
+    },
+    apply: (target, functionName, args) => {
+      console.log(`Called method: ${functionName}, with arguments: ${JSON.stringify(args)}`)
+      return ({functionName, args})
+    }
+  })
+
+
+  // runtime[functionName] = callback
+  // const startTime = Date.now()
+  // const response = await openai.createChatCompletion({
+  //   // model: 'gpt-3.5-turbo-0613',
+  //   model: 'gpt-4-0613',
+  //   messages: [
+  //     { role: 'system', content: 'You are an expert marketer.' },
+  //     { role: 'user', content: 'Write a landing page for Driv.ly' },
+  //   ],
+  //   functions: [{
+  //     name: 'writeLandingPage',
+  //     // description: 'Write a landing page',
+  //     parameters: getJsonSchema(schema)
+  //   }]
+  // })
 }
 
 export const getJsonSchema = propDescriptions => {

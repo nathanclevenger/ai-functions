@@ -1,6 +1,3 @@
-// import assert from 'node:assert'
-// import { describe, it } from 'node:test'
-
 import { describe, test, it, expect } from 'vitest'
 
 import { AI } from './index.js'
@@ -13,42 +10,45 @@ test('Math.sqrt()', () => {
 })
 
 
-describe('getJsonSchema', () => {
+test('getJsonSchema', () => {
 
-  it('JSON Schema', () => {
-
-    const schema = getJsonSchema({ 
-      name: 'The name of the person',
-      age: 'The age of the person' 
-    })
-
-    expect(schema).toEqual({ 
-      type: 'object', 
-      properties: { 
-        name: { type: 'string', description: 'The name of the person' }, 
-        age: { type: 'string', description: 'The age of the person' } }, 
-        required: ['name', 'age']
-    })
-    
+  const schema = getJsonSchema({ 
+    name: 'The name of the person',
+    age: 'The age of the person' 
   })
 
-  it('should be ok', () => {
-    assert.strictEqual(2, 2)
+  expect(schema).toEqual({ 
+    type: 'object', 
+    properties: { 
+      name: { type: 'string', description: 'The name of the person' }, 
+      age: { type: 'string', description: 'The age of the person' } }, 
+      required: ['name', 'age']
   })
+
 })
 
-describe('A thing', () => {
+test('AI', () => {
+  AI.writeLandingPage({
+    brand: 'Auto.dev',
+    audience: 'developers',
+    offers: 'Automotive Data APIs',
+  })
+  
+    // AI('writeLandingPage', ({ title, description, heroTitle, heroDescription, featuresTitle, featuresDescription }) => 
+})
+
+test('A thing', () => {
   it('should work', () => {
-    assert.strictEqual(1, 1)
+    expect(3).toBe(3)
   })
 
   it('should be ok', () => {
-    assert.strictEqual(2, 2)
+    expect(2).toBe(2)
   })
 
   describe('a nested thing', () => {
     it('should work', () => {
-      assert.strictEqual(3, 3)
+      expect(3).toBe(3)
     })
   })
 })
