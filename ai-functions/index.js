@@ -22,7 +22,7 @@ const response = await openai.createChatCompletion({
     // { role: 'user', content: 'List 2 possible blog post titles about APIs' },
     // { role: 'assistant', content: 'The Los Angeles Dodgers won the World Series in 2020.' },
     // { role: 'user', content: 'Where was it played?' },
-    { role: 'user', content: 'Write a landing page for Driv.ly' },
+    { role: 'user', content: 'Write a landing page for Driv.ly, an API-first platform for automotive commerce that lets anyone create a virtual dealership in the cloud to buy and sell cars online' },
   ],
   functions: [{
     name: 'writeLandingPage',
