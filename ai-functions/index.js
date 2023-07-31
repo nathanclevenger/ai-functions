@@ -11,64 +11,90 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 
-const startTime = Date.now()
-const response = await openai.createChatCompletion({
-  // model: 'gpt-3.5-turbo-0613',
-  model: 'gpt-4-0613',
-  messages: [
-    { role: 'system', content: 'You are an expert marketer.' },
-    // { role: 'user', content: 'Write an ES6 function to convert base16 to base62' },
-    // { role: 'user', content: 'Write an ES6 function to do Fizz Buzz' },
-    // { role: 'user', content: 'List 2 possible blog post titles about APIs' },
-    // { role: 'assistant', content: 'The Los Angeles Dodgers won the World Series in 2020.' },
-    // { role: 'user', content: 'Where was it played?' },
-    { role: 'user', content: 'Write a landing page for Driv.ly, an API-first platform for automotive commerce that lets anyone create a virtual dealership in the cloud to buy and sell cars online' },
-  ],
-  functions: [{
-    name: 'writeLandingPage',
-    // description: 'Write a landing page',
-    parameters: {
-      type: 'object',
-      properties: {
-        title: { type: 'string', description: 'The title of the landing page' },
-        description: { type: 'string', description: 'The description of the landing page' },
-        heroTitle: { type: 'string', description: 'The hero title of the landing page' },
-        heroDescription: { type: 'string', description: 'The hero description of the landing page' },
-        // features: { type: 'array', description: 'The features of the landing page' },
-        featuresTitle: { type: 'string', description: 'The features title of the landing page' },
-        featuresDescription: { type: 'string', description: 'The features description of the landing page' },
-        // features: { type: 'array', description: 'The features of the landing page' },
-      },
-      required: ['title', 'description', 'heroTitle', 'heroDescription', 'featuresTitle', 'featuresDescription',]
-    }
-  }]
+// const startTime = Date.now()
+// const response = await openai.createChatCompletion({
+//   // model: 'gpt-3.5-turbo-0613',
+//   model: 'gpt-4-0613',
+//   messages: [
+//     { role: 'system', content: 'You are an expert marketer.' },
+//     // { role: 'user', content: 'Write an ES6 function to convert base16 to base62' },
+//     // { role: 'user', content: 'Write an ES6 function to do Fizz Buzz' },
+//     // { role: 'user', content: 'List 2 possible blog post titles about APIs' },
+//     // { role: 'assistant', content: 'The Los Angeles Dodgers won the World Series in 2020.' },
+//     // { role: 'user', content: 'Where was it played?' },
+//     { role: 'user', content: 'Write a landing page for Driv.ly' },
+//   ],
+//   functions: [{
+//     name: 'writeLandingPage',
+//     // description: 'Write a landing page',
+//     parameters: {
+//       type: 'object',
+//       properties: {
+//         title: { type: 'string', description: 'The title of the landing page' },
+//         description: { type: 'string', description: 'The description of the landing page' },
+//         heroTitle: { type: 'string', description: 'The hero title of the landing page' },
+//         heroDescription: { type: 'string', description: 'The hero description of the landing page' },
+//         // features: { type: 'array', description: 'The features of the landing page' },
+//         featuresTitle: { type: 'string', description: 'The features title of the landing page' },
+//         featuresDescription: { type: 'string', description: 'The features description of the landing page' },
+//         // features: { type: 'array', description: 'The features of the landing page' },
+//       },
+//       required: ['title', 'description', 'heroTitle', 'heroDescription', 'featuresTitle', 'featuresDescription',]
+//     }
+//   }]
   
-  // max_tokens: 7,
-  // temperature: 0,
-  // stream: true,
-  // go: true,
-})
-const completion = await response.json()
-const requestTime = Date.now() - startTime
-// console.timeEnd('openai')
-const processingTime = parseInt(response.headers.get('openai-processing-ms'))
-const latency = requestTime - processingTime
-const status = response.status
+//   // max_tokens: 7,
+//   // temperature: 0,
+//   // stream: true,
+//   // go: true,
+// })
+// const completion = await response.json()
+// const requestTime = Date.now() - startTime
+// // console.timeEnd('openai')
+// const processingTime = parseInt(response.headers.get('openai-processing-ms'))
+// const latency = requestTime - processingTime
+// const status = response.status
 
-const functionName = completion?.choices?.[0]?.message?.function_call?.name
-const args = JSON.parse(completion?.choices?.[0]?.message?.function_call?.arguments)
+// const functionName = completion?.choices?.[0]?.message?.function_call?.name
+// const args = JSON.parse(completion?.choices?.[0]?.message?.function_call?.arguments)
 
-console.log({ requestTime, processingTime, latency })
-console.log(completion?.choices?.[0])
-console.log(completion?.error)
-console.log({ functionName, args })
+// console.log({ requestTime, processingTime, latency })
+// console.log(completion?.choices?.[0])
+// console.log(completion?.error)
+// console.log({ functionName, args })
 
 export const runtime = {
 
 }
 
-export const AI = (functionName, callback) => {
-    runtime[functionName] = callback
+export const AI = async (schema) => {
+  return new Proxy({}, {
+    get: (target, functionName) => {
+      console.log(`Called method: ${property}, with arguments: ${JSON.stringify(args)}`)
+      return ({functionName, args})
+    },
+    apply: (target, functionName, args) => {
+      console.log(`Called method: ${functionName}, with arguments: ${JSON.stringify(args)}`)
+      return ({functionName, args})
+    }
+  })
+
+
+  // runtime[functionName] = callback
+  // const startTime = Date.now()
+  // const response = await openai.createChatCompletion({
+  //   // model: 'gpt-3.5-turbo-0613',
+  //   model: 'gpt-4-0613',
+  //   messages: [
+  //     { role: 'system', content: 'You are an expert marketer.' },
+  //     { role: 'user', content: 'Write a landing page for Driv.ly' },
+  //   ],
+  //   functions: [{
+  //     name: 'writeLandingPage',
+  //     // description: 'Write a landing page',
+  //     parameters: getJsonSchema(schema)
+  //   }]
+  // })
 }
 
 export const getJsonSchema = propDescriptions => {
