@@ -19,10 +19,10 @@
     "url": "https://github.com/nathanclevenger/ai-functions/issues"
   },
   "homepage": "https://github.com/nathanclevenger/ai-functions#readme",
-  "dependencies": {
-    "openai-edge": "^1.1.0"
-  },
   "devDependencies": {
     "vitest": "^0.33.0"
+  },
+  "dependencies": {
+    "openai": "^4.3.1"
   }
 }

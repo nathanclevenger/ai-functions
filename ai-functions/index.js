@@ -1,15 +1,20 @@
-import { Configuration, OpenAIApi } from 'openai-edge'
+import OpenAI from 'openai'
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-  basePath: 'https://aihooks.dev/v1',
-  baseOptions: {
-    headers: {
-      'webhook-app-id': process.env.AIHOOKS_APP_ID
-    }
-  }
-})
-const openai = new OpenAIApi(configuration)
+const openai = new OpenAI()
+
+
+// import { Configuration, OpenAIApi } from 'openai-edge'
+
+// const configuration = new Configuration({
+//   apiKey: process.env.OPENAI_API_KEY,
+//   basePath: 'https://aihooks.dev/v1',
+//   baseOptions: {
+//     headers: {
+//       'webhook-app-id': process.env.AIHOOKS_APP_ID
+//     }
+//   }
+// })
+// const openai = new OpenAIApi(configuration)
 
 // const startTime = Date.now()
 // const response = await openai.createChatCompletion({
@@ -97,7 +102,7 @@ export const AI = async (schema) => {
   // })
 }
 
-export const getJsonSchema = propDescriptions => {
+export const schema = propDescriptions => {
   // assume an object like this: { name: 'The name of the person', age: 'The age of the person' }
   // return an object like this: { type: 'object', properties: { name: { type: 'string', description: 'The name of the person' }, age: { type: 'number', description: 'The age of the person' } } required: ['name', 'age'] }
   const properties = Object.entries(propDescriptions).reduce((acc, [key, value]) => {
