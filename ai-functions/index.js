@@ -105,11 +105,32 @@ export const AI = async (schema) => {
 export const schema = propDescriptions => {
   // assume an object like this: { name: 'The name of the person', age: 'The age of the person' }
   // return an object like this: { type: 'object', properties: { name: { type: 'string', description: 'The name of the person' }, age: { type: 'number', description: 'The age of the person' } } required: ['name', 'age'] }
-  const properties = Object.entries(propDescriptions).reduce((acc, [key, value]) => {
-    acc[key] = { type: typeof value, description: value }
-    return acc
+  if (Array.isArray(propDescriptions)) {
+    const [ itemValue ] = propDescriptions
+    const itemType = typeof itemValue
+    if (itemType == 'string') {
+      if (itemValue.includes('|')) return { type: 'string', enum: itemValue.split('|').map(value => value.trim()) }
+      return { type: 'array', description: itemValue, items: { type: 'string' }}
+    } else if (itemType == 'object') {
+      return { type: 'array', items: schema(itemValue)}
+    }
+  } else {
+    const properties = Object.entries(propDescriptions).reduce((acc, [key, value]) => {
+      const type = typeof value
+      if (Array.isArray(value)) {
+        const [ itemValue ] = value
+        const itemType = typeof itemValue
+        if (itemType == 'string') {
+          acc[key] = { type: 'array', description: itemValue, items: { type: 'string' }}
+        } else if (itemType == 'object') {
+          acc[key] = { type: 'array', items: schema(itemValue)}
+        }
+      } else {
+        acc[key] = { type, description: value }
+      }
+      return acc
+    }, {})
+    const required = Object.keys(properties)
+    return { type: 'object', properties, required }
   }
-  , {})
-  const required = Object.keys(properties)
-  return { type: 'object', properties, required }
 }
