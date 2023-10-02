@@ -3,6 +3,8 @@ import OpenAI from 'openai'
 const openai = new OpenAI()
 
 
+
+
 // import { Configuration, OpenAIApi } from 'openai-edge'
 
 // const configuration = new Configuration({
@@ -72,17 +74,9 @@ export const runtime = {
 
 }
 
-export const AI = async (schema) => {
-  return new Proxy({}, {
-    get: (target, functionName) => {
-      console.log(`Called method: ${property}, with arguments: ${JSON.stringify(args)}`)
-      return ({functionName, args})
-    },
-    apply: (target, functionName, args) => {
-      console.log(`Called method: ${functionName}, with arguments: ${JSON.stringify(args)}`)
-      return ({functionName, args})
-    }
-  })
+export const ai = new Proxy({}, {
+  get: (target, functionName) => args => ({ functionName, args })
+})
 
 
   // runtime[functionName] = callback
@@ -100,7 +94,7 @@ export const AI = async (schema) => {
   //     parameters: getJsonSchema(schema)
   //   }]
   // })
-}
+// }
 
 export const schema = propDescriptions => {
   // assume an object like this: { name: 'The name of the person', age: 'The age of the person' }
@@ -109,7 +103,6 @@ export const schema = propDescriptions => {
     const [ itemValue ] = propDescriptions
     const itemType = typeof itemValue
     if (itemType == 'string') {
-      if (itemValue.includes('|')) return { type: 'string', enum: itemValue.split('|').map(value => value.trim()) }
       return { type: 'array', description: itemValue, items: { type: 'string' }}
     } else if (itemType == 'object') {
       return { type: 'array', items: schema(itemValue)}
@@ -121,12 +114,20 @@ export const schema = propDescriptions => {
         const [ itemValue ] = value
         const itemType = typeof itemValue
         if (itemType == 'string') {
+          if (itemValue.includes('|')) return { type: 'string', enum: itemValue.split('|').map(value => value.trim()) }
           acc[key] = { type: 'array', description: itemValue, items: { type: 'string' }}
         } else if (itemType == 'object') {
           acc[key] = { type: 'array', items: schema(itemValue)}
         }
       } else {
-        acc[key] = { type, description: value }
+        if (type == 'string') {
+          if (value.includes('|')) return { type: 'string', enum: value.split('|').map(value => value.trim()) }
+          acc[key] = { type, description: value }
+        } else if (type == 'object') {
+          acc[key] = schema(value)
+        } else {
+          acc[key] = { type, description: value }
+        }
       }
       return acc
     }, {})

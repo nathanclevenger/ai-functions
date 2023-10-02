@@ -482,10 +482,10 @@ openai-edge@^1.1.0:
   resolved "https://registry.yarnpkg.com/openai-edge/-/openai-edge-1.2.0.tgz#5ffd233c775bc94bdb3d2912914077fb3440da8e"
   integrity sha512-eaQs+O/1k6OZMUibNlBzWPXdHFxpUNLMy4BwhtXCFDub5iz7ve/PxOJTL8GBG3/1S1j6LIL93xjdlzCPQpbdgQ==
 
-openai@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/openai/-/openai-4.3.1.tgz#800dd4bfb7dc764a956042197896725f39b6a08d"
-  integrity sha512-64iI2LbJLk0Ss4Nv5IrdGFe6ALNnKlMuXoGuH525bJYxdupJfDCAtra/Jigex1z8it0U82M87tR2TMGU+HYeFQ==
+openai@^4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/openai/-/openai-4.11.0.tgz#8adc03e6f74e71cc501d798d81209aa06e4ca14b"
+  integrity sha512-zU/MJxZTijL0Ym6CKoQPbnmHDsGZlH9g5zorPszdc41OyLxlhnlrorBcGzmGS9qpnjGGNncJR1hfg/mXq0OONw==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/node-fetch" "^2.6.4"
@@ -502,6 +502,11 @@ p-limit@^4.0.0:
   integrity sha512-5b0R4txpzjPWVw/cXXUResoD4hb6U/x9BH08L7nw+GN1sezDzPdxeRvpc9c433fZhBan/wusjbCsqwqm4EIBIQ==
   dependencies:
     yocto-queue "^1.0.0"
+
+partial-json-parser@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/partial-json-parser/-/partial-json-parser-1.2.2.tgz#56d753bb980136ea4ee42ee413383f8dad26edef"
+  integrity sha512-4LH14R2aykVDWefU2qJjL1Rli610fjKxOJQ3SjKwWzKYJvIkjflcGtsd1Ix09U7UP5G6V1GyHtbgPjknFD/G7w==
 
 pathe@^1.1.0, pathe@^1.1.1:
   version "1.1.1"
@@ -700,6 +705,11 @@ why-is-node-running@^2.2.2:
   dependencies:
     siginfo "^2.0.0"
     stackback "0.0.2"
+
+yaml@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.3.2.tgz#f522db4313c671a0ca963a75670f1c12ea909144"
+  integrity sha512-N/lyzTPaJasoDmfV7YTrYCI0G/3ivm/9wdG0aHuheKowWQwGTsK0Eoiw6utmzAnI6pkJa0DUVygvp3spqqEKXg==
 
 yocto-queue@^1.0.0:
   version "1.0.0"

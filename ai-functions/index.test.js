@@ -1,7 +1,6 @@
 import { describe, test, it, expect } from 'vitest'
 
-import { AI } from './index.js'
-import { getJsonSchema } from './index.js'
+import { ai, schema } from './index.js'
 
 test('Math.sqrt()', () => {
   expect(Math.sqrt(4)).toBe(2)
@@ -12,12 +11,12 @@ test('Math.sqrt()', () => {
 
 test('getJsonSchema', () => {
 
-  const schema = getJsonSchema({ 
+  const jsonSchema = schema({ 
     name: 'The name of the person',
     age: 'The age of the person' 
   })
 
-  expect(schema).toEqual({ 
+  expect(jsonSchema).toEqual({ 
     type: 'object', 
     properties: { 
       name: { type: 'string', description: 'The name of the person' }, 
@@ -27,11 +26,18 @@ test('getJsonSchema', () => {
 
 })
 
-test('AI', () => {
-  AI.writeLandingPage({
+test('ai', () => {
+  expect(ai.writeLandingPage({
     brand: 'Auto.dev',
     audience: 'developers',
     offers: 'Automotive Data APIs',
+  })).toEqual({
+    functionName: 'writeLandingPage',
+    args: {
+      brand: 'Auto.dev',
+      audience: 'developers',
+      offers: 'Automotive Data APIs',
+    }
   })
   
     // AI('writeLandingPage', ({ title, description, heroTitle, heroDescription, featuresTitle, featuresDescription }) => 

@@ -10,5 +10,8 @@ import { AI } from 'ai-functions'
 
 const ai = AI({ apiKey: OPENAI_API_KEY })
 
+ai.generateBlogPostTitles({
+  
+})
 
 ```
