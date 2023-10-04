@@ -21,6 +21,6 @@ async function* writeBlog(count, topic) {
   }
 }
 
-for await (const post of writeBlog(25, 'future of car sales')) {
+for await (const post of writeBlog(5, 'future of car sales')) {
   console.log({ post })
 }
