@@ -101,5 +101,5 @@ export const AI = opts => {
     
   }
 
-  return { ai, list, gpt }
+  return { ai, list, gpt, openai }
 }
