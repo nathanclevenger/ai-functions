@@ -72,26 +72,31 @@ export const AI = opts => {
     if (system) prompt.messages.unshift({ role: 'system', content: system })
     const stream = await openai.chat.completions.create(prompt)
     let content = ''
+    let seperator = undefined
+    let numberedList = undefined
 
     for await (const part of stream) {
       const { delta, finish_reason } = part.choices[0]
-      // console.log(delta?.content || '')
-      // if (part.choices[0]?.finish_reason)
       content += delta?.content || ''
-      if (content.includes('\n')) {
-        // get the string before the newline, and modify `content` to be the string after the newline
-        // then yield the string before the newline
-        const lines = content.split('\n')
-        while (lines.length > 1) {
-          const line = lines.shift()
-          // console.log(line)
-          yield line
-        }
-        content = lines[0]
+      if (seperator === undefined && content.length > 4) {
+        numberedList = content.match(/(\d+\.\s)/g)
+        seperator = numberedList ? '\n' : ', '
       }
 
-      // console.log(content)
-      if (finish_reason) yield content
+      const numberedRegex = /\d+\.\s(?:")?([^"]+)(?:")?/
+
+      if (content.includes(seperator)) {
+        // get the string before the newline, and modify `content` to be the string after the newline
+        // then yield the string before the newline
+        const items = content.split(seperator)
+        while (items.length > 1) {
+          const item = items.shift()
+          yield numberedList ? item.match(numberedRegex)?.[1] : item
+        }
+        content = items[0]
+      }
+
+      if (finish_reason) yield numberedList ? content.match(numberedRegex)?.[1] : content
     }
     
   }
