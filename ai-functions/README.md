@@ -40,11 +40,10 @@ for await (const thing of list`fun things to do in Miami`) {
 Or in a more complex example:
 
 ```javascript
+const listBlogPosts = (count, topic) => list`${count} blog post titles about ${topic}`
+const writeBlogPost = title => gpt`write a blog post in markdown starting with "# ${title}"`
 
-const listBlogPosts => (count, topic) => list`${count} blog post titles about ${topic}`
-const writeBlogPost => title => gpt`write a blog post in markdown starting with "# ${title}"`
-
-const writeBlog = async (count, topic) => {
+async function* writeBlog(count, topic) {
   for await (const title of listBlogPosts(count, topic)) {
     const content = await writeBlogPost(title)
     yield { title, content }
