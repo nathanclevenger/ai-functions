@@ -8,7 +8,50 @@ Key Features:
 ```javascript
 import { AI } from 'ai-functions'
 
-const ai = AI({ apiKey: OPENAI_API_KEY })
+const { ai, gpt, list } = AI({ apiKey: OPENAI_API_KEY })
+```
 
+Then you can use magic `ai` functions:
+```javascript
 
+const product = await ai.categorizeProduct({ domain: name }, { 
+  productType: 'App | API | Marketplace | Platform | Packaged Service | Professional Service | Website',
+  customer: 'ideal customer profile in 3-5 words',
+  solution: 'describe the offer in 4-10 words',
+  description: 'website meta description',
+})
+```
+
+you can also use `list` tagged template as a convienence function:
+
+```javascript
+const things = await list`fun things to do in Miami`
+console.log(things)
+```
+
+or with Async iterators:
+
+```javascript
+for await (const thing of list`fun things to do in Miami`) {
+  console.log(thing)
+}
+```
+
+Or in a more complex example:
+
+```javascript
+
+const listBlogPosts => (count, topic) => list`${count} blog post titles about ${topic}`
+const writeBlogPost => title => gpt`write a blog post in markdown starting with "# ${title}"`
+
+const writeBlog = async (count, topic) => {
+  for await (const title of listBlogPosts(count, topic)) {
+    const content = await writeBlogPost(title)
+    yield { title, content }
+  }
+}
+
+for await (const post of writeBlog(25, 'future of car sales')) {
+  console.log({ post })
+}
 ```

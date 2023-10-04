@@ -1,6 +1,6 @@
 {
   "name": "ai-functions",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Library for Developing and Managing AI Functions (including OpenAI GPT4 / GPT3.5)",
   "main": "index.js",
   "type": "module",
