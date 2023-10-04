@@ -15,3 +15,8 @@ ai.generateBlogPostTitles({
 })
 
 ```
+
+## Roadmap
+
+- [ ] Add support for streaming responses & partial JSON
+- [ ] Write examples that use base schema

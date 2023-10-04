@@ -23,7 +23,9 @@
     "vitest": "^0.33.0"
   },
   "dependencies": {
-    "openai": "^4.11.0",
+    "camelcase-keys": "^9.1.0",
+    "js-yaml": "^4.1.0",
+    "openai": "^4.11.1",
     "partial-json-parser": "^1.2.2",
     "yaml": "^2.3.2"
   }

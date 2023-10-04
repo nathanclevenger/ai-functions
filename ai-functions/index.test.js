@@ -1,13 +1,13 @@
 import { describe, test, it, expect } from 'vitest'
 
-import { ai, schema } from './index.js'
+import { AI } from './index.js'
+const { ai, list, gpt } = AI()
 
 test('Math.sqrt()', () => {
   expect(Math.sqrt(4)).toBe(2)
   expect(Math.sqrt(144)).toBe(12)
   expect(Math.sqrt(2)).toBe(Math.SQRT2)
 })
-
 
 test('getJsonSchema', () => {
 
@@ -23,6 +23,10 @@ test('getJsonSchema', () => {
       age: { type: 'string', description: 'The age of the person' } }, 
       required: ['name', 'age']
   })
+
+})
+
+test('list', () => {
 
 })
 
