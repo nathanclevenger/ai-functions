@@ -1,7 +1,7 @@
 // import { OpenAI } from 'openai'
 // import camelcaseKeys from 'camelcase-keys'
 // import { dump } from 'js-yaml'
-import { stringify } from 'yaml'
+// import { stringify } from 'yaml'
 import { schema } from './schema.js'
 
 export const AI = opts => {
@@ -35,7 +35,7 @@ export const AI = opts => {
         const prompt = {
           model,
           messages: [
-            { role: 'user', content: `Call ${functionName} given the context:\n${stringify(args)}` }, // \nThere is no additional information, so make assumptions/guesses as necessary` },
+            { role: 'user', content: `Call ${functionName} given the context:\n${JSON.stringify(args).replaceAll('"','')}` }, // \nThere is no additional information, so make assumptions/guesses as necessary` },
           ],
           functions: [{ 
             name: functionName, 
@@ -44,6 +44,7 @@ export const AI = opts => {
           }],
           ...rest,
         }
+        // console.log(prompt.messages)
         if (system) prompt.messages.unshift({ role: 'system', content: system })
         const completion = await openaiFetch(prompt)
         let data, error
