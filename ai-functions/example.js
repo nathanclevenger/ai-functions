@@ -1,4 +1,4 @@
-import { AI } from './ai.js'
+import { AI } from './ai2.js'
 
 const { ai, list, gpt } = AI()
 

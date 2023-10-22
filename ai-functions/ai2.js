@@ -1,12 +1,12 @@
 import { OpenAI } from 'openai'
-import camelcaseKeys from 'camelcase-keys'
+// import camelcaseKeys from 'camelcase-keys'
 import { dump } from 'js-yaml'
 import { schema } from './schema.js'
 
 export const AI = opts => {
   const { system, model = 'gpt-3.5-turbo', apiKey, OPENAI_API_KEY, ...rest } = opts || {}
 
-  const openai = new OpenAI({ apiKey: apiKey ?? OPENAI_API_KEY, ...rest })
+  // const openai = new OpenAI({ apiKey: apiKey ?? OPENAI_API_KEY, ...rest })
 
   const gpt = async (strings, ...values) => {
     const user = values.map((value, i) => strings[i] + value).join('') + strings[strings.length - 1]
