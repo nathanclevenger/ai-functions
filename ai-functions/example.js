@@ -1,4 +1,4 @@
-import { AI } from './ai.js'
+import { AI } from './proxy.js'
 
 const { ai, list, gpt } = AI()
 
@@ -16,11 +16,23 @@ const writeBlogPost = title => gpt`write a blog post in markdown starting with "
 
 async function* writeBlog(count, topic) {
   for await (const title of listBlogPosts(count, topic)) {
-    const content = await writeBlogPost(title)
-    yield { title, content }
+    const contentPromise = writeBlogPost(title).then(content => {
+      console.log({ title, content })
+      return { title, content }
+    })
+    yield { title, contentPromise }
   }
 }
 
-for await (const post of writeBlog(5, 'future of car sales')) {
+for await (const post of writeBlog(3, 'future of car sales')) {
   console.log({ post })
 }
+
+const product = await ai.categorizeProduct({ domain: 'OpenSaaS.org' }, { 
+  productType: 'App | API | Marketplace | Platform | Packaged Service | Professional Service | Website',
+  customer: 'ideal customer profile in 3-5 words',
+  solution: 'describe the offer in 4-10 words',
+  description: 'website meta description',
+})
+
+console.log({ product })
