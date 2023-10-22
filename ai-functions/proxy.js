@@ -1,6 +1,7 @@
 // import { OpenAI } from 'openai'
 // import camelcaseKeys from 'camelcase-keys'
-import { dump } from 'js-yaml'
+// import { dump } from 'js-yaml'
+import { stringify } from 'yaml'
 import { schema } from './schema.js'
 
 export const AI = opts => {
@@ -34,7 +35,7 @@ export const AI = opts => {
         const prompt = {
           model,
           messages: [
-            { role: 'user', content: `Call ${functionName} given the context:\n${dump(args)}` }, // \nThere is no additional information, so make assumptions/guesses as necessary` },
+            { role: 'user', content: `Call ${functionName} given the context:\n${stringify(args)}` }, // \nThere is no additional information, so make assumptions/guesses as necessary` },
           ],
           functions: [{ 
             name: functionName, 

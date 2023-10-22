@@ -1,6 +1,6 @@
 {
   "name": "ai-functions",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Library for Developing and Managing AI Functions (including OpenAI GPT4 / GPT3.5)",
   "main": "index.js",
   "type": "module",
@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/nathanclevenger/ai-functions#readme",
   "devDependencies": {
+    "partial-json-parser": "^1.2.2",
     "vitest": "^0.33.0"
   },
   "dependencies": {
-    "js-yaml": "^4.1.0",
-    "partial-json-parser": "^1.2.2"
+    "yaml": "^2.3.3"
   }
 }
