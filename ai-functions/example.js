@@ -28,11 +28,11 @@ for await (const post of writeBlog(3, 'future of car sales')) {
   console.log({ post })
 }
 
-const product = await ai.categorizeProduct({ domain: 'OpenSaaS.org' }, { 
+const product = await ai.categorizeProduct({ 
   productType: 'App | API | Marketplace | Platform | Packaged Service | Professional Service | Website',
   customer: 'ideal customer profile in 3-5 words',
   solution: 'describe the offer in 4-10 words',
   description: 'website meta description',
-})
+})({ domain: 'OpenSaaS.org' })
 
 console.log({ product })

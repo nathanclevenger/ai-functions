@@ -28,7 +28,7 @@ export const AI = opts => {
 
   const ai = new Proxy({}, {
     get: (target, functionName, receiver) => {
-      return async (args, returnSchema, options) => {
+      return (returnSchema, options) => async args => {
         console.log(schema(returnSchema))
         const { system, description, model = 'gpt-3.5-turbo', meta = false, ...rest } = options || {}
         const prompt = {
