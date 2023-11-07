@@ -1,9 +1,9 @@
-import { BSON } from 'bson'
+import { BSON, ObjectId } from 'bson'
 import { AIDB } from '../db/mongo'
 import PQueue from 'p-queue'
 import { chatCompletion, CompletionInput } from '../utils/completion'
 import { createMachine, createActor } from 'xstate'
-import { ChangeStreamInsertDocument } from 'mongodb'
+import { ChangeStreamInsertDocument, InsertOneResult, UpdateOneModel, UpdateResult } from 'mongodb'
 
 let localQueue
 
@@ -17,11 +17,16 @@ export type QueueInputMerge = {
   into: string
   on?: BSON.Document
   let?: BSON.Document
+  contentAs?: string
+  itemsAs?: string
+  functionDataAs?: string
+  forEachItem?: boolean
 }
 export type QueueInput = (CompletionInput | ({ list: string } & Partial<CompletionInput>)) & {
+  _id?: ObjectId
   metadata?: object
   merge?: string | QueueInputMerge
-  target: string
+  target?: string
 }
 
 export type QueueDocument = QueueInput & {
@@ -47,9 +52,26 @@ export const startQueue = async (config: QueueConfig) => {
     { $merge: { into: 'queue', on: '_id', whenMatched: 'replace' } },
   ]).toArray()
 
-  db.queue.watch<QueueInput, ChangeStreamInsertDocument<QueueInput>>([
+  db.queue.watch<QueueInput, ChangeStreamInsertDocument< QueueInput >>([
     { $match: { lockedBy: instance } },
-  ]).on('change', (change) => queue.add(() => chatCompletion(change.fullDocument)))
+  ]).on('change', async (change) => {
+    const { _id, metadata, merge, target, ...input } = change.fullDocument
+    const completion = await queue.add(() => chatCompletion(input))
+    if (merge) {
+      const coll = typeof merge === 'string' ? merge : merge.into 
+      const match = typeof merge === 'string' ? undefined : merge.on
+      // TODO: Add support to make completion optional, and specify field names for content, items, and functionData
+      const mergeResult = match 
+        ? await db.db.collection(coll).updateOne(match, { $set: { completion, ...metadata ?? {} } })
+        : await db.db.collection(coll).insertOne({ completion, ...metadata ?? {} })
+      if (mergeResult.acknowledged && (
+          (mergeResult as UpdateResult).modifiedCount ||
+          (mergeResult as InsertOneResult).insertedId)) {
+        // TODO: We may want to store the merge result in the Events collection to link the queue input to the merge result
+        await db.queue.deleteOne({ _id })
+      }
+    }
+  })
 
   queue.on('idle', async () => {
     await clearExpiredLocks()
@@ -57,6 +79,10 @@ export const startQueue = async (config: QueueConfig) => {
   })
 
   queue.start()
+
+  // TODO: Add Find() and Watch() for Actors collection
+  // TODO: For each actor, create a state machine and start it
+  // TODO: Figure out how to create new queued jobs from the results of the state machine
 
 }
 
