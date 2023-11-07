@@ -1,24 +1,23 @@
-import { createMachine, interpret } from 'xstate'
+import { createMachine, createActor } from 'xstate'
 
 // Stateless machine definition
 // machine.transition(...) is a pure function used by the interpreter.
 const toggleMachine = createMachine({
-  id: 'toggle',
+  id: 'Switch',
   initial: 'inactive',
   states: {
-    inactive: { on: { TOGGLE: 'active' } },
-    active: { on: { TOGGLE: 'inactive' } },
+    inactive: { on: { Toggle: 'active' } },
+    active: { on: { Toggle: 'inactive' } },
   },
 })
 
 // Machine instance with internal state
-const toggleService = interpret(toggleMachine)
-  .onTransition((state) => console.log(state.value))
-  .start()
+const toggleService = createActor(toggleMachine) .start()
+toggleService.subscribe((state) => console.log(state.value))
 // => 'inactive'
 
-toggleService.send('TOGGLE')
+toggleService.send({ type: 'Toggle' })
 // => 'active'
 
-toggleService.send('TOGGLE')
+toggleService.send({ type: 'Toggle' })
 // => 'inactive'

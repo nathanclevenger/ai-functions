@@ -1,20 +1,23 @@
-import type { MongoClient, Db, Collection, InsertOneResult } from 'mongodb'
+import type { MongoClient, Db, Collection, InsertOneResult, BSON } from 'mongodb'
 import type { ChatCompletion, ChatCompletionCreateParamsNonStreaming } from 'openai/resources/index.mjs'
+import { QueueInput } from '../queue/mongo'
 
 export let client: MongoClient
 export let db: Db
 export let cache: Collection
 export let cacheTTL: number
 export let events: Collection
-export let jobs: Collection
+export let queue: Collection
+export let actors: Collection
 
 export type AIDBConfig = {
   client: MongoClient
   db?: Db | string
   cache?: Collection | string
   cacheTTL?: number
+  actors?: Collection | string
   events?: Collection | string
-  jobs?: Collection | string
+  queue?: Collection | string
 }
 
 export type AIDB = {
@@ -22,9 +25,11 @@ export type AIDB = {
   db: Db
   cache: Collection
   cacheTTL: number
+  actors: Collection
   events: Collection
+  queue: Collection
   log: (prompt: ChatCompletionCreateParamsNonStreaming, completion: ChatCompletion) => Promise<InsertOneResult<any>>
-  jobs: Collection
+  send: (input: QueueInput | QueueInput[]) => Promise<InsertOneResult<any>>
 }
 
 export const AIDB = (args: AIDBConfig | MongoClient) => {
@@ -33,11 +38,13 @@ export const AIDB = (args: AIDBConfig | MongoClient) => {
   db = typeof config.db === 'string' ? client.db(config.db) : config.db ?? client.db()
   cache = typeof config.cache === 'string' ? db.collection(config.cache) : config.cache ?? db.collection('ai-cache')
   cacheTTL = config.cacheTTL ?? 1000 * 60 * 60 * 24 * 30
-  events =
-    typeof config.events === 'string' ? db.collection(config.events) : config.events ?? db.collection('ai-events')
-  jobs = typeof config.jobs === 'string' ? db.collection(config.jobs) : config.jobs ?? db.collection('ai-jobs')
-  return { client, db, cache, events, log, jobs } as AIDB
+  events = typeof config.events === 'string' ? db.collection(config.events) : config.events ?? db.collection('ai-events')
+  queue = typeof config.queue === 'string' ? db.collection(config.queue) : config.queue ?? db.collection('ai-queue')
+  actors = typeof config.queue === 'string' ? db.collection(config.queue) : config.queue ?? db.collection('ai-actors')
+  return { client, db, cache, actors, events, queue, log, send } as AIDB
 }
+
+const send = (input: QueueInput | QueueInput[]) => Array.isArray(input) ? queue.insertMany(input) : queue.insertOne(input)
 
 const log = (prompt: ChatCompletionCreateParamsNonStreaming, completion: ChatCompletion) => {
   const system = prompt.messages.find((message) => message.role === 'system')?.content

@@ -42,6 +42,6 @@
     "openai": "^4.16.1",
     "p-queue": "^7.4.1",
     "partial-json-parser": "^1.2.2",
-    "xstate": "^4.38.3"
+    "xstate": "^5.0.0-beta.40"
   }
 }
