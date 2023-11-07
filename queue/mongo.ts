@@ -49,7 +49,7 @@ export const startQueue = async (config: QueueConfig) => {
     { $match: { lockedAt: { $exists: false } } },
     { $limit: batchSize },
     { $set: { lockedAt: new Date(), lockedBy: instance } },
-    { $merge: { into: 'queue', on: '_id', whenMatched: 'replace' } },
+    { $merge: { into: 'queue', on: '_id', whenMatched: 'replace' } }, // TODO: Change the `into` to the name of the `queue` collection
   ]).toArray()
 
   db.queue.watch<QueueInput, ChangeStreamInsertDocument< QueueInput >>([
