@@ -12,7 +12,6 @@ export const AI = (config: AIConfig) => {
   const openai = config.openai ?? new OpenAI(rest)
   const { client, db, cache, events, jobs } = AIDB(config.db)
 
-
   const completion = openai.chat.completions.create({
     model: 'gpt-4-1106-preview',
     messages: [{ role: 'user', content: 'hello' }],
