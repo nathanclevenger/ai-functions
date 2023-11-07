@@ -3,7 +3,10 @@ import type { ChatCompletion, ChatCompletionCreateParamsNonStreaming } from 'ope
 import { GPTConfig } from '../types'
 
 export type CompletionInput = GPTConfig &
-  ((({ user: string } | { list: string }) & Partial<ChatCompletionCreateParamsNonStreaming>) | ChatCompletionCreateParamsNonStreaming)
+  (
+    | (({ user: string } | { list: string }) & Partial<ChatCompletionCreateParamsNonStreaming>)
+    | ChatCompletionCreateParamsNonStreaming
+  )
 // TODO: add support for list input and parsing
 
 export const chatCompletion = async (config: CompletionInput) => {

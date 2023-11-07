@@ -12,7 +12,7 @@ const toggleMachine = createMachine({
 })
 
 // Machine instance with internal state
-const toggleService = createActor(toggleMachine) .start()
+const toggleService = createActor(toggleMachine).start()
 toggleService.subscribe((state) => console.log(state.value))
 // => 'inactive'
 

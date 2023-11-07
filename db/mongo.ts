@@ -38,13 +38,15 @@ export const AIDB = (args: AIDBConfig | MongoClient) => {
   db = typeof config.db === 'string' ? client.db(config.db) : config.db ?? client.db()
   cache = typeof config.cache === 'string' ? db.collection(config.cache) : config.cache ?? db.collection('ai-cache')
   cacheTTL = config.cacheTTL ?? 1000 * 60 * 60 * 24 * 30
-  events = typeof config.events === 'string' ? db.collection(config.events) : config.events ?? db.collection('ai-events')
+  events =
+    typeof config.events === 'string' ? db.collection(config.events) : config.events ?? db.collection('ai-events')
   queue = typeof config.queue === 'string' ? db.collection(config.queue) : config.queue ?? db.collection('ai-queue')
   actors = typeof config.queue === 'string' ? db.collection(config.queue) : config.queue ?? db.collection('ai-actors')
   return { client, db, cache, actors, events, queue, log, send } as AIDB
 }
 
-const send = (input: QueueInput | QueueInput[]) => Array.isArray(input) ? queue.insertMany(input) : queue.insertOne(input)
+const send = (input: QueueInput | QueueInput[]) =>
+  Array.isArray(input) ? queue.insertMany(input) : queue.insertOne(input)
 
 const log = (prompt: ChatCompletionCreateParamsNonStreaming, completion: ChatCompletion) => {
   const system = prompt.messages.find((message) => message.role === 'system')?.content
