@@ -16,8 +16,7 @@ Then you can use magic `ai` functions:
 
 ```javascript
 const categorizeProduct = ai.categorizeProduct({
-  productType:
-    'App | API | Marketplace | Platform | Packaged Service | Professional Service | Website',
+  productType: 'App | API | Marketplace | Platform | Packaged Service | Professional Service | Website',
   customer: 'ideal customer profile in 3-5 words',
   solution: 'describe the offer in 4-10 words',
   description: 'website meta description',
@@ -44,10 +43,8 @@ for await (const thing of list`fun things to do in Miami`) {
 Or in a more complex example:
 
 ```javascript
-const listBlogPosts = (count, topic) =>
-  list`${count} blog post titles about ${topic}`
-const writeBlogPost = (title) =>
-  gpt`write a blog post in markdown starting with "# ${title}"`
+const listBlogPosts = (count, topic) => list`${count} blog post titles about ${topic}`
+const writeBlogPost = (title) => gpt`write a blog post in markdown starting with "# ${title}"`
 
 async function* writeBlog(count, topic) {
   for await (const title of listBlogPosts(count, topic)) {

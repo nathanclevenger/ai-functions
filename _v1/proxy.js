@@ -4,19 +4,11 @@ import { dump } from 'js-yaml'
 import { schema } from './schema.js'
 
 export const AI = (opts) => {
-  const {
-    system,
-    model = 'gpt-3.5-turbo',
-    apiKey,
-    OPENAI_API_KEY,
-    ...rest
-  } = opts || {}
+  const { system, model = 'gpt-3.5-turbo', apiKey, OPENAI_API_KEY, ...rest } = opts || {}
 
   // const openai = new OpenAI({ apiKey: apiKey ?? OPENAI_API_KEY, ...rest })
   const headers = {
-    Authorization: `Bearer ${
-      apiKey ?? OPENAI_API_KEY ?? globalThis.process?.env?.OPENAI_API_KEY
-    }`,
+    Authorization: `Bearer ${apiKey ?? OPENAI_API_KEY ?? globalThis.process?.env?.OPENAI_API_KEY}`,
     'Content-Type': 'application/json',
   }
   const openaiFetch = (obj) =>
@@ -27,9 +19,7 @@ export const AI = (opts) => {
     }).then((res) => res.json())
 
   const gpt = async (strings, ...values) => {
-    const user =
-      values.map((value, i) => strings[i] + value).join('') +
-      strings[strings.length - 1]
+    const user = values.map((value, i) => strings[i] + value).join('') + strings[strings.length - 1]
     const prompt = {
       model,
       messages: [{ role: 'user', content: user }],
@@ -45,21 +35,13 @@ export const AI = (opts) => {
       get: (target, functionName, receiver) => {
         return (returnSchema, options) => async (args) => {
           console.log(schema(returnSchema))
-          const {
-            system,
-            description,
-            model = 'gpt-3.5-turbo',
-            meta = false,
-            ...rest
-          } = options || {}
+          const { system, description, model = 'gpt-3.5-turbo', meta = false, ...rest } = options || {}
           const prompt = {
             model,
             messages: [
               {
                 role: 'user',
-                content: `Call ${functionName} given the context:\n${dump(
-                  args
-                )}`,
+                content: `Call ${functionName} given the context:\n${dump(args)}`,
               }, // \nThere is no additional information, so make assumptions/guesses as necessary` },
             ],
             functions: [
@@ -71,8 +53,7 @@ export const AI = (opts) => {
             ],
             ...rest,
           }
-          if (system)
-            prompt.messages.unshift({ role: 'system', content: system })
+          if (system) prompt.messages.unshift({ role: 'system', content: system })
           const completion = await openaiFetch(prompt)
           let data, error
           const { message } = completion.choices?.[0]
@@ -89,25 +70,19 @@ export const AI = (opts) => {
           const cost =
             Math.round(
               (gpt4
-                ? completion.usage.prompt_tokens * 0.003 +
-                  completion.usage.completion_tokens * 0.006
-                : completion.usage.prompt_tokens * 0.00015 +
-                  completion.usage.completion_tokens * 0.0002) * 100000
+                ? completion.usage.prompt_tokens * 0.003 + completion.usage.completion_tokens * 0.006
+                : completion.usage.prompt_tokens * 0.00015 + completion.usage.completion_tokens * 0.0002) * 100000
             ) / 100000
           // completion.usage = camelcaseKeys(completion.usage)
           console.log({ data, content, error, cost })
-          return meta
-            ? { prompt, content, data, error, cost, ...completion }
-            : data ?? content
+          return meta ? { prompt, content, data, error, cost, ...completion } : data ?? content
         }
       },
     }
   )
 
   async function* list(strings, ...values) {
-    const listPrompt =
-      values.map((value, i) => strings[i] + value).join('') +
-      strings[strings.length - 1]
+    const listPrompt = values.map((value, i) => strings[i] + value).join('') + strings[strings.length - 1]
     const prompt = {
       model,
       messages: [{ role: 'user', content: 'List ' + listPrompt }],
@@ -151,8 +126,7 @@ export const AI = (opts) => {
             content = items[0]
           }
 
-          if (finish_reason)
-            yield numberedList ? content.match(numberedRegex)?.[1] : content
+          if (finish_reason) yield numberedList ? content.match(numberedRegex)?.[1] : content
         } catch (error) {
           console.log(error.message, line)
         }

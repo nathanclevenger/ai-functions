@@ -4,8 +4,7 @@ export const occupations = {
   111011: 'Chief Executives',
   111021: 'General and Operations Managers',
   111031: 'Legislators',
-  112000:
-    'Advertising, Marketing, Promotions, Public Relations, and Sales Managers',
+  112000: 'Advertising, Marketing, Promotions, Public Relations, and Sales Managers',
   112011: 'Advertising and Promotions Managers',
   112020: 'Marketing and Sales Managers',
   112021: 'Marketing Managers',
@@ -138,8 +137,7 @@ export const occupations = {
   172072: 'Electronics Engineers, Except Computer',
   172081: 'Environmental Engineers',
   172110: 'Industrial Engineers, Including Health and Safety',
-  172111:
-    'Health and Safety Engineers, Except Mining Safety Engineers and Inspectors',
+  172111: 'Health and Safety Engineers, Except Mining Safety Engineers and Inspectors',
   172112: 'Industrial Engineers',
   172121: 'Marine Engineers and Naval Architects',
   172131: 'Materials Engineers',
@@ -163,8 +161,7 @@ export const occupations = {
   173026: 'Industrial Engineering Technologists and Technicians',
   173027: 'Mechanical Engineering Technologists and Technicians',
   173028: 'Calibration Technologists and Technicians',
-  173029:
-    'Engineering Technologists and Technicians, Except Drafters, All Other',
+  173029: 'Engineering Technologists and Technicians, Except Drafters, All Other',
   173031: 'Surveying and Mapping Technicians',
   190000: 'Life, Physical, and Social Science Occupations',
   191000: 'Life Scientists',
@@ -233,8 +230,7 @@ export const occupations = {
   195011: 'Occupational Health and Safety Specialists',
   195012: 'Occupational Health and Safety Technicians',
   210000: 'Community and Social Service Occupations',
-  211000:
-    'Counselors, Social Workers, and Other Community and Social Service Specialists',
+  211000: 'Counselors, Social Workers, and Other Community and Social Service Specialists',
   211010: 'Counselors',
   211012: 'Educational, Guidance, and Career Counselors and Advisors',
   211013: 'Marriage and Family Therapists',
@@ -284,8 +280,7 @@ export const occupations = {
   251042: 'Biological Science Teachers, Postsecondary',
   251043: 'Forestry and Conservation Science Teachers, Postsecondary',
   251050: 'Physical Sciences Teachers, Postsecondary',
-  251051:
-    'Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary',
+  251051: 'Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary',
   251052: 'Chemistry Teachers, Postsecondary',
   251053: 'Environmental Science Teachers, Postsecondary',
   251054: 'Physics Teachers, Postsecondary',
@@ -308,8 +303,7 @@ export const occupations = {
   251111: 'Criminal Justice and Law Enforcement Teachers, Postsecondary',
   251112: 'Law Teachers, Postsecondary',
   251113: 'Social Work Teachers, Postsecondary',
-  251120:
-    'Arts, Communications, History, and Humanities Teachers, Postsecondary',
+  251120: 'Arts, Communications, History, and Humanities Teachers, Postsecondary',
   251121: 'Art, Drama, and Music Teachers, Postsecondary',
   251122: 'Communications Teachers, Postsecondary',
   251123: 'English Language and Literature Teachers, Postsecondary',
@@ -321,19 +315,16 @@ export const occupations = {
   251193: 'Recreation and Fitness Studies Teachers, Postsecondary',
   251194: 'Career/Technical Education Teachers, Postsecondary',
   251199: 'Postsecondary Teachers, All Other',
-  252000:
-    'Preschool, Elementary, Middle, Secondary, and Special Education Teachers',
+  252000: 'Preschool, Elementary, Middle, Secondary, and Special Education Teachers',
   252010: 'Preschool and Kindergarten Teachers',
   252011: 'Preschool Teachers, Except Special Education',
   252012: 'Kindergarten Teachers, Except Special Education',
   252020: 'Elementary and Middle School Teachers',
   252021: 'Elementary School Teachers, Except Special Education',
-  252022:
-    'Middle School Teachers, Except Special and Career/Technical Education',
+  252022: 'Middle School Teachers, Except Special and Career/Technical Education',
   252023: 'Career/Technical Education Teachers, Middle School',
   252030: 'Secondary School Teachers',
-  252031:
-    'Secondary School Teachers, Except Special and Career/Technical Education',
+  252031: 'Secondary School Teachers, Except Special and Career/Technical Education',
   252032: 'Career/Technical Education Teachers, Secondary School',
   252050: 'Special Education Teachers',
   252051: 'Special Education Teachers, Preschool',
@@ -342,8 +333,7 @@ export const occupations = {
   252058: 'Special Education Teachers, Secondary School',
   252059: 'Special Education Teachers, All Other',
   253000: 'Other Teachers and Instructors',
-  253011:
-    'Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors',
+  253011: 'Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors',
   253021: 'Self-Enrichment Teachers',
   253031: 'Substitute Teachers, Short-Term',
   253041: 'Tutors',
@@ -393,8 +383,7 @@ export const occupations = {
   272040: 'Musicians, Singers, and Related Workers',
   272041: 'Music Directors and Composers',
   272042: 'Musicians and Singers',
-  272090:
-    'Miscellaneous Entertainers and Performers, Sports and Related Workers',
+  272090: 'Miscellaneous Entertainers and Performers, Sports and Related Workers',
   272091: 'Disc Jockeys, Except Radio',
   272099: 'Entertainers and Performers, Sports and Related Workers, All Other',
   273000: 'Media and Communication Workers',
@@ -505,8 +494,7 @@ export const occupations = {
   299093: 'Surgical Assistants',
   299099: 'Healthcare Practitioners and Technical Workers, All Other',
   310000: 'Healthcare Support Occupations',
-  311100:
-    'Home Health and Personal Care Aides; and Nursing Assistants, Orderlies, and Psychiatric Aides',
+  311100: 'Home Health and Personal Care Aides; and Nursing Assistants, Orderlies, and Psychiatric Aides',
   311120: 'Home Health and Personal Care Aides',
   311130: 'Nursing Assistants, Orderlies, and Psychiatric Aides',
   311131: 'Nursing Assistants',
@@ -562,8 +550,7 @@ export const occupations = {
   339032: 'Security Guards',
   339090: 'Miscellaneous Protective Service Workers',
   339091: 'Crossing Guards and Flaggers',
-  339092:
-    'Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers',
+  339092: 'Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers',
   339093: 'Transportation Security Screeners',
   339094: 'School Bus Monitors',
   339099: 'Protective Service Workers, All Other',
@@ -591,11 +578,9 @@ export const occupations = {
   359031: 'Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop',
   359099: 'Food Preparation and Serving Related Workers, All Other',
   370000: 'Building and Grounds Cleaning and Maintenance Occupations',
-  371010:
-    'First-Line Supervisors of Building and Grounds Cleaning and Maintenance Workers',
+  371010: 'First-Line Supervisors of Building and Grounds Cleaning and Maintenance Workers',
   371011: 'First-Line Supervisors of Housekeeping and Janitorial Workers',
-  371012:
-    'First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers',
+  371012: 'First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers',
   372000: 'Building Cleaning and Pest Control Workers',
   372010: 'Building Cleaning Workers',
   372011: 'Janitors and Cleaners, Except Maids and Housekeeping Cleaners',
@@ -611,8 +596,7 @@ export const occupations = {
   391000: 'Supervisors of Personal Care and Service Workers',
   391010: 'First-Line Supervisors of Entertainment and Recreation Workers',
   391013: 'First-Line Supervisors of Gambling Services Workers',
-  391014:
-    'First-Line Supervisors of Entertainment and Recreation Workers, Except Gambling Services',
+  391014: 'First-Line Supervisors of Entertainment and Recreation Workers, Except Gambling Services',
   391022: 'First-Line Supervisors of Personal Service Workers',
   392000: 'Animal Care and Service Workers',
   392011: 'Animal Trainers',
@@ -672,13 +656,10 @@ export const occupations = {
   413021: 'Insurance Sales Agents',
   413031: 'Securities, Commodities, and Financial Services Sales Agents',
   413041: 'Travel Agents',
-  413091:
-    'Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel',
+  413091: 'Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel',
   414010: 'Sales Representatives, Wholesale and Manufacturing',
-  414011:
-    'Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products',
-  414012:
-    'Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products',
+  414011: 'Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products',
+  414012: 'Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products',
   419000: 'Other Sales and Related Workers',
   419010: 'Models, Demonstrators, and Product Promoters',
   419011: 'Demonstrators and Product Promoters',
@@ -689,8 +670,7 @@ export const occupations = {
   419031: 'Sales Engineers',
   419041: 'Telemarketers',
   419090: 'Miscellaneous Sales and Related Workers',
-  419091:
-    'Door-to-Door Sales Workers, News and Street Vendors, and Related Workers',
+  419091: 'Door-to-Door Sales Workers, News and Street Vendors, and Related Workers',
   419099: 'Sales and Related Workers, All Other',
   430000: 'Office and Administrative Support Occupations',
   431011: 'First-Line Supervisors of Office and Administrative Support Workers',
@@ -725,8 +705,7 @@ export const occupations = {
   434171: 'Receptionists and Information Clerks',
   434181: 'Reservation and Transportation Ticket Agents and Travel Clerks',
   434199: 'Information and Record Clerks, All Other',
-  435000:
-    'Material Recording, Scheduling, Dispatching, and Distributing Workers',
+  435000: 'Material Recording, Scheduling, Dispatching, and Distributing Workers',
   435011: 'Cargo and Freight Agents',
   435021: 'Couriers and Messengers',
   435030: 'Dispatchers',
@@ -736,8 +715,7 @@ export const occupations = {
   435050: 'Postal Service Workers',
   435051: 'Postal Service Clerks',
   435052: 'Postal Service Mail Carriers',
-  435053:
-    'Postal Service Mail Sorters, Processors, and Processing Machine Operators',
+  435053: 'Postal Service Mail Sorters, Processors, and Processing Machine Operators',
   435061: 'Production, Planning, and Expediting Clerks',
   435071: 'Shipping, Receiving, and Inventory Clerks',
   435111: 'Weighers, Measurers, Checkers, and Samplers, Recordkeeping',
@@ -745,8 +723,7 @@ export const occupations = {
   436011: 'Executive Secretaries and Executive Administrative Assistants',
   436012: 'Legal Secretaries and Administrative Assistants',
   436013: 'Medical Secretaries and Administrative Assistants',
-  436014:
-    'Secretaries and Administrative Assistants, Except Legal, Medical, and Executive',
+  436014: 'Secretaries and Administrative Assistants, Except Legal, Medical, and Executive',
   439000: 'Other Office and Administrative Support Workers',
   439020: 'Data Entry and Information Processing Workers',
   439021: 'Data Entry Keyers',
@@ -778,8 +755,7 @@ export const occupations = {
   454023: 'Log Graders and Scalers',
   454029: 'Logging Workers, All Other',
   470000: 'Construction and Extraction Occupations',
-  471011:
-    'First-Line Supervisors of Construction Trades and Extraction Workers',
+  471011: 'First-Line Supervisors of Construction Trades and Extraction Workers',
   472000: 'Construction Trades Workers',
   472011: 'Boilermakers',
   472020: 'Brickmasons, Blockmasons, and Stonemasons',
@@ -820,8 +796,7 @@ export const occupations = {
   472221: 'Structural Iron and Steel Workers',
   472231: 'Solar Photovoltaic Installers',
   473010: 'Helpers, Construction Trades',
-  473011:
-    'Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters',
+  473011: 'Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters',
   473012: 'Helpers--Carpenters',
   473013: 'Helpers--Electricians',
   473014: 'Helpers--Painters, Paperhangers, Plasterers, and Stucco Masons',
@@ -843,8 +818,7 @@ export const occupations = {
   475012: 'Rotary Drill Operators, Oil and Gas',
   475013: 'Service Unit Operators, Oil and Gas',
   475020: 'Surface Mining Machine Operators and Earth Drillers',
-  475022:
-    'Excavating and Loading Machine and Dragline Operators, Surface Mining',
+  475022: 'Excavating and Loading Machine and Dragline Operators, Surface Mining',
   475023: 'Earth Drillers, Except Oil and Gas',
   475032: 'Explosives Workers, Ordnance Handling Experts, and Blasters',
   475040: 'Underground Mining Machine Operators',
@@ -858,23 +832,17 @@ export const occupations = {
   475099: 'Extraction Workers, All Other',
   490000: 'Installation, Maintenance, and Repair Occupations',
   491011: 'First-Line Supervisors of Mechanics, Installers, and Repairers',
-  492000:
-    'Electrical and Electronic Equipment Mechanics, Installers, and Repairers',
+  492000: 'Electrical and Electronic Equipment Mechanics, Installers, and Repairers',
   492011: 'Computer, Automated Teller, and Office Machine Repairers',
   492020: 'Radio and Telecommunications Equipment Installers and Repairers',
   492021: 'Radio, Cellular, and Tower Equipment Installers and Repairers',
-  492022:
-    'Telecommunications Equipment Installers and Repairers, Except Line Installers',
-  492090:
-    'Miscellaneous Electrical and Electronic Equipment Mechanics, Installers, and Repairers',
+  492022: 'Telecommunications Equipment Installers and Repairers, Except Line Installers',
+  492090: 'Miscellaneous Electrical and Electronic Equipment Mechanics, Installers, and Repairers',
   492091: 'Avionics Technicians',
   492092: 'Electric Motor, Power Tool, and Related Repairers',
-  492093:
-    'Electrical and Electronics Installers and Repairers, Transportation Equipment',
-  492094:
-    'Electrical and Electronics Repairers, Commercial and Industrial Equipment',
-  492095:
-    'Electrical and Electronics Repairers, Powerhouse, Substation, and Relay',
+  492093: 'Electrical and Electronics Installers and Repairers, Transportation Equipment',
+  492094: 'Electrical and Electronics Repairers, Commercial and Industrial Equipment',
+  492095: 'Electrical and Electronics Repairers, Powerhouse, Substation, and Relay',
   492096: 'Electronic Equipment Installers and Repairers, Motor Vehicles',
   492097: 'Audiovisual Equipment Installers and Repairers',
   492098: 'Security and Fire Alarm Systems Installers',
@@ -885,8 +853,7 @@ export const occupations = {
   493022: 'Automotive Glass Installers and Repairers',
   493023: 'Automotive Service Technicians and Mechanics',
   493031: 'Bus and Truck Mechanics and Diesel Engine Specialists',
-  493040:
-    'Heavy Vehicle and Mobile Equipment Service Technicians and Mechanics',
+  493040: 'Heavy Vehicle and Mobile Equipment Service Technicians and Mechanics',
   493041: 'Farm Equipment Mechanics and Service Technicians',
   493042: 'Mobile Heavy Equipment Mechanics, Except Engines',
   493043: 'Rail Car Repairers',
@@ -894,8 +861,7 @@ export const occupations = {
   493051: 'Motorboat Mechanics and Service Technicians',
   493052: 'Motorcycle Mechanics',
   493053: 'Outdoor Power Equipment and Other Small Engine Mechanics',
-  493090:
-    'Miscellaneous Vehicle and Mobile Equipment Mechanics, Installers, and Repairers',
+  493090: 'Miscellaneous Vehicle and Mobile Equipment Mechanics, Installers, and Repairers',
   493091: 'Bicycle Repairers',
   493092: 'Recreational Vehicle Service Technicians',
   493093: 'Tire Repairers and Changers',
@@ -903,8 +869,7 @@ export const occupations = {
   499010: 'Control and Valve Installers and Repairers',
   499011: 'Mechanical Door Repairers',
   499012: 'Control and Valve Installers and Repairers, Except Mechanical Door',
-  499021:
-    'Heating, Air Conditioning, and Refrigeration Mechanics and Installers',
+  499021: 'Heating, Air Conditioning, and Refrigeration Mechanics and Installers',
   499031: 'Home Appliance Repairers',
   499040: 'Industrial Machinery Installation, Repair, and Maintenance Workers',
   499041: 'Industrial Machinery Mechanics',
@@ -937,8 +902,7 @@ export const occupations = {
   512011: 'Aircraft Structure, Surfaces, Rigging, and Systems Assemblers',
   512020: 'Electrical, Electronics, and Electromechanical Assemblers',
   512021: 'Coil Winders, Tapers, and Finishers',
-  512028:
-    'Electrical, electronic, and electromechanical assemblers, except coil winders, tapers, and finishers',
+  512028: 'Electrical, electronic, and electromechanical assemblers, except coil winders, tapers, and finishers',
   512031: 'Engine and Other Machine Assemblers',
   512041: 'Structural Metal Fabricators and Fitters',
   512051: 'Fiberglass Laminators and Fabricators',
@@ -951,29 +915,21 @@ export const occupations = {
   513022: 'Meat, Poultry, and Fish Cutters and Trimmers',
   513023: 'Slaughterers and Meat Packers',
   513090: 'Miscellaneous Food Processing Workers',
-  513091:
-    'Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders',
+  513091: 'Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders',
   513092: 'Food Batchmakers',
   513093: 'Food Cooking Machine Operators and Tenders',
   513099: 'Food Processing Workers, All Other',
   514000: 'Metal Workers and Plastic Workers',
   514020: 'Forming Machine Setters, Operators, and Tenders, Metal and Plastic',
-  514021:
-    'Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic',
+  514021: 'Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic',
   514022: 'Forging Machine Setters, Operators, and Tenders, Metal and Plastic',
   514023: 'Rolling Machine Setters, Operators, and Tenders, Metal and Plastic',
-  514030:
-    'Machine Tool Cutting Setters, Operators, and Tenders, Metal and Plastic',
-  514031:
-    'Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic',
-  514032:
-    'Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic',
-  514033:
-    'Grinding/Lapping/Polishing/Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic',
-  514034:
-    'Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic',
-  514035:
-    'Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic',
+  514030: 'Machine Tool Cutting Setters, Operators, and Tenders, Metal and Plastic',
+  514031: 'Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic',
+  514032: 'Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic',
+  514033: 'Grinding/Lapping/Polishing/Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic',
+  514034: 'Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic',
+  514035: 'Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic',
   514041: 'Machinists',
   514050: 'Metal Furnace Operators, Tenders, Pourers, and Casters',
   514051: 'Metal-Refining Furnace Operators and Tenders',
@@ -981,21 +937,16 @@ export const occupations = {
   514060: 'Model Makers and Patternmakers, Metal and Plastic',
   514061: 'Model Makers, Metal and Plastic',
   514062: 'Patternmakers, Metal and Plastic',
-  514070:
-    'Molders and Molding Machine Setters, Operators, and Tenders, Metal and Plastic',
+  514070: 'Molders and Molding Machine Setters, Operators, and Tenders, Metal and Plastic',
   514071: 'Foundry Mold and Coremakers',
-  514072:
-    'Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic',
-  514081:
-    'Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic',
+  514072: 'Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic',
+  514081: 'Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic',
   514111: 'Tool and Die Makers',
   514120: 'Welding, Soldering, and Brazing Workers',
   514121: 'Welders, Cutters, Solderers, and Brazers',
-  514122:
-    'Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders',
+  514122: 'Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders',
   514190: 'Miscellaneous Metal Workers and Plastic Workers',
-  514191:
-    'Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic',
+  514191: 'Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic',
   514192: 'Layout Workers, Metal and Plastic',
   514193: 'Plating Machine Setters, Operators, and Tenders, Metal and Plastic',
   514194: 'Tool Grinders, Filers, and Sharpeners',
@@ -1017,13 +968,10 @@ export const occupations = {
   516060: 'Textile Machine Setters, Operators, and Tenders',
   516061: 'Textile Bleaching and Dyeing Machine Operators and Tenders',
   516062: 'Textile Cutting Machine Setters, Operators, and Tenders',
-  516063:
-    'Textile Knitting and Weaving Machine Setters, Operators, and Tenders',
-  516064:
-    'Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders',
+  516063: 'Textile Knitting and Weaving Machine Setters, Operators, and Tenders',
+  516064: 'Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders',
   516090: 'Miscellaneous Textile, Apparel, and Furnishings Workers',
-  516091:
-    'Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers',
+  516091: 'Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers',
   516092: 'Fabric and Apparel Patternmakers',
   516093: 'Upholsterers',
   516099: 'Textile, Apparel, and Furnishings Workers, All Other',
@@ -1052,31 +1000,26 @@ export const occupations = {
   519000: 'Other Production Occupations',
   519010: 'Chemical Processing Machine Setters, Operators, and Tenders',
   519011: 'Chemical Equipment Operators and Tenders',
-  519012:
-    'Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders',
+  519012: 'Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders',
   519020: 'Crushing, Grinding, Polishing, Mixing, and Blending Workers',
-  519021:
-    'Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders',
+  519021: 'Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders',
   519022: 'Grinding and Polishing Workers, Hand',
   519023: 'Mixing and Blending Machine Setters, Operators, and Tenders',
   519030: 'Cutting Workers',
   519031: 'Cutters and Trimmers, Hand',
   519032: 'Cutting and Slicing Machine Setters, Operators, and Tenders',
-  519041:
-    'Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders',
+  519041: 'Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders',
   519051: 'Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders',
   519061: 'Inspectors, Testers, Sorters, Samplers, and Weighers',
   519071: 'Jewelers and Precious Stone and Metal Workers',
-  519080:
-    'Dental and Ophthalmic Laboratory Technicians and Medical Appliance Technicians',
+  519080: 'Dental and Ophthalmic Laboratory Technicians and Medical Appliance Technicians',
   519081: 'Dental Laboratory Technicians',
   519082: 'Medical Appliance Technicians',
   519083: 'Ophthalmic Laboratory Technicians',
   519111: 'Packaging and Filling Machine Operators and Tenders',
   519120: 'Painting Workers',
   519123: 'Painting, Coating, and Decorating Workers',
-  519124:
-    'Coating, Painting, and Spraying Machine Setters, Operators, and Tenders',
+  519124: 'Coating, Painting, and Spraying Machine Setters, Operators, and Tenders',
   519141: 'Semiconductor Processing Technicians',
   519151: 'Photographic Process Workers and Processing Machine Operators',
   519160: 'Computer Numerically Controlled Tool Operators and Programmers',
@@ -1084,8 +1027,7 @@ export const occupations = {
   519162: 'Computer Numerically Controlled Tool Programmers',
   519190: 'Miscellaneous Production Workers',
   519191: 'Adhesive Bonding Machine Operators and Tenders',
-  519192:
-    'Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders',
+  519192: 'Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders',
   519193: 'Cooling and Freezing Equipment Operators and Tenders',
   519194: 'Etchers and Engravers',
   519195: 'Molders, Shapers, and Casters, Except Metal and Plastic',
@@ -1094,11 +1036,9 @@ export const occupations = {
   519198: 'Helpers--Production Workers',
   519199: 'Production Workers, All Other',
   530000: 'Transportation and Material Moving Occupations',
-  531040:
-    'First-Line Supervisors of Transportation and Material Moving Workers',
+  531040: 'First-Line Supervisors of Transportation and Material Moving Workers',
   531041: 'Aircraft Cargo Handling Supervisors',
-  531047:
-    'First-Line Supervisors of Transportation Workers, Except Aircraft Cargo Handling Supervisors',
+  531047: 'First-Line Supervisors of Transportation Workers, Except Aircraft Cargo Handling Supervisors',
   532000: 'Air Transportation Workers',
   532010: 'Aircraft Pilots and Flight Engineers',
   532011: 'Airline Pilots, Copilots, and Flight Engineers',
@@ -1108,8 +1048,7 @@ export const occupations = {
   532022: 'Airfield Operations Specialists',
   532031: 'Flight Attendants',
   533000: 'Motor Vehicle Operators',
-  533011:
-    'Ambulance Drivers and Attendants, Except Emergency Medical Technicians',
+  533011: 'Ambulance Drivers and Attendants, Except Emergency Medical Technicians',
   533030: 'Driver/Sales Workers and Truck Drivers',
   533031: 'Driver/Sales Workers',
   533032: 'Heavy and Tractor-Trailer Truck Drivers',

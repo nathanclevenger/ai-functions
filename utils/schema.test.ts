@@ -64,8 +64,6 @@ describe('generateSchema', () => {
   it('should throw an error for invalid propDescriptions', () => {
     const callWithInvalidArg = () => generateSchema('invalid argument' as any)
 
-    expect(callWithInvalidArg).toThrow(
-      'The propDescriptions parameter should be an object.'
-    )
+    expect(callWithInvalidArg).toThrow('The propDescriptions parameter should be an object.')
   })
 })

@@ -37,15 +37,9 @@ export const parseStringDescription = (description: string): JSONSchema7 => {
  * and values as descriptions or nested property description objects.
  * @returns A JSON schema object based on the provided descriptions.
  */
-export const generateSchema = (
-  propDescriptions: Record<string, string | Record<string, any>>
-): JSONSchema7 => {
+export const generateSchema = (propDescriptions: Record<string, string | Record<string, any>>): JSONSchema7 => {
   // If the propDescriptions is for an object structure
-  if (
-    typeof propDescriptions !== 'object' ||
-    propDescriptions === null ||
-    Array.isArray(propDescriptions)
-  ) {
+  if (typeof propDescriptions !== 'object' || propDescriptions === null || Array.isArray(propDescriptions)) {
     throw new Error('The propDescriptions parameter should be an object.')
   }
 

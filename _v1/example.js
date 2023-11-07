@@ -10,10 +10,8 @@ for await (const item of list`fun things to do in Miami`) {
   console.log(item)
 }
 
-const listBlogPosts = (count, topic) =>
-  list`${count} blog post titles about ${topic}`
-const writeBlogPost = (title) =>
-  gpt`write a blog post in markdown starting with "# ${title}"`
+const listBlogPosts = (count, topic) => list`${count} blog post titles about ${topic}`
+const writeBlogPost = (title) => gpt`write a blog post in markdown starting with "# ${title}"`
 
 async function* writeBlog(count, topic) {
   for await (const title of listBlogPosts(count, topic)) {
@@ -30,8 +28,7 @@ for await (const post of writeBlog(3, 'future of car sales')) {
 }
 
 const product = await ai.categorizeProduct({
-  productType:
-    'App | API | Marketplace | Platform | Packaged Service | Professional Service | Website',
+  productType: 'App | API | Marketplace | Platform | Packaged Service | Professional Service | Website',
   customer: 'ideal customer profile in 3-5 words',
   solution: 'describe the offer in 4-10 words',
   description: 'website meta description',
