@@ -55,7 +55,7 @@ export const startQueue = async (config: QueueConfig) => {
   db.queue.watch<QueueInput, ChangeStreamInsertDocument< QueueInput >>([
     { $match: { lockedBy: instance } },
   ]).on('change', async (change) => {
-    const { _id, metadata, merge, target, ...input } = change.fullDocument
+    const { _id, metadata, merge, target, ...input } = change.fullDocument // TODO: Move input to child object not catchall spread
     const completion = await queue.add(() => chatCompletion(input))
     if (merge) {
       const coll = typeof merge === 'string' ? merge : merge.into 
