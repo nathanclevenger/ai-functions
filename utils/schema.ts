@@ -66,4 +66,3 @@ export const generateSchema = (
 
   return { type: 'object', properties, required }
 }
-

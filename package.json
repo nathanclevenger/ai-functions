@@ -36,6 +36,7 @@
     "js-yaml": "^4.1.0",
     "json-schema-to-ts": "^2.9.2",
     "kafkajs": "^2.2.4",
+    "lodash-es": "^4.17.21",
     "mongodb": "^6.2.0",
     "openai": "^4.16.1",
     "p-queue": "^7.4.1",
