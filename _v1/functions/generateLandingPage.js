@@ -5,7 +5,10 @@ export const generateLandingPage = {
     type: 'object',
     properties: {
       title: { type: 'string', description: 'The title of the landing page' },
-      description: { type: 'string', description: 'The description of the landing page' },
-    }
-  }
+      description: {
+        type: 'string',
+        description: 'The description of the landing page',
+      },
+    },
+  },
 }

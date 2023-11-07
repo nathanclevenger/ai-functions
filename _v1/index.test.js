@@ -10,41 +10,40 @@ test('Math.sqrt()', () => {
 })
 
 test('getJsonSchema', () => {
-
-  const jsonSchema = schema({ 
+  const jsonSchema = schema({
     name: 'The name of the person',
-    age: 'The age of the person' 
+    age: 'The age of the person',
   })
 
-  expect(jsonSchema).toEqual({ 
-    type: 'object', 
-    properties: { 
-      name: { type: 'string', description: 'The name of the person' }, 
-      age: { type: 'string', description: 'The age of the person' } }, 
-      required: ['name', 'age']
+  expect(jsonSchema).toEqual({
+    type: 'object',
+    properties: {
+      name: { type: 'string', description: 'The name of the person' },
+      age: { type: 'string', description: 'The age of the person' },
+    },
+    required: ['name', 'age'],
   })
-
 })
 
-test('list', () => {
-
-})
+test('list', () => {})
 
 test('ai', () => {
-  expect(ai.writeLandingPage({
-    brand: 'Auto.dev',
-    audience: 'developers',
-    offers: 'Automotive Data APIs',
-  })).toEqual({
+  expect(
+    ai.writeLandingPage({
+      brand: 'Auto.dev',
+      audience: 'developers',
+      offers: 'Automotive Data APIs',
+    })
+  ).toEqual({
     functionName: 'writeLandingPage',
     args: {
       brand: 'Auto.dev',
       audience: 'developers',
       offers: 'Automotive Data APIs',
-    }
+    },
   })
-  
-    // AI('writeLandingPage', ({ title, description, heroTitle, heroDescription, featuresTitle, featuresDescription }) => 
+
+  // AI('writeLandingPage', ({ title, description, heroTitle, heroDescription, featuresTitle, featuresDescription }) =>
 })
 
 test('A thing', () => {

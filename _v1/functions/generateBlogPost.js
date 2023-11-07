@@ -6,7 +6,10 @@ export const generateBlogPost = {
     properties: {
       title: { type: 'string', description: 'The title of the Blog Post' },
       tags: { type: 'array', items: { type: 'string' } },
-      markdown: { type: 'string', description: 'The content of the Blog Post in Markdown format' },
-    }
-  }
+      markdown: {
+        type: 'string',
+        description: 'The content of the Blog Post in Markdown format',
+      },
+    },
+  },
 }

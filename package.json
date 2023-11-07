@@ -1,4 +1,45 @@
 {
-  "private": true,
-  "workspaces": ["ai-functions", "ai-javascript-eval"]
+  "name": "ai-functions",
+  "version": "0.1.4",
+  "description": "Library for Developing and Managing AI Functions (including OpenAI GPT4 / GPT3.5)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write .",
+    "test": "dotenv -- vitest --globals"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanclevenger/ai-functions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nathanclevenger/ai-functions/issues"
+  },
+  "homepage": "https://github.com/nathanclevenger/ai-functions#readme",
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2
+  },
+  "devDependencies": {
+    "@types/json-schema": "^7.0.14",
+    "dotenv-cli": "^7.3.0",
+    "prettier": "^3.0.3",
+    "vitest": "^0.33.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "json-schema-to-ts": "^2.9.2",
+    "kafkajs": "^2.2.4",
+    "mongodb": "^6.2.0",
+    "openai": "^4.16.1",
+    "p-queue": "^7.4.1",
+    "partial-json-parser": "^1.2.2",
+    "xstate": "^4.38.3"
+  }
 }
