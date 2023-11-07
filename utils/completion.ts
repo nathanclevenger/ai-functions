@@ -8,6 +8,7 @@ export type CompletionInput = GPTConfig &
     | ChatCompletionCreateParamsNonStreaming
   )
 // TODO: add support for list input and parsing
+// TODO: add support for caching w/ seed generation for unit tests
 
 export const chatCompletion = async (config: CompletionInput) => {
   const { user, system, model, db, queue, ...rest } = config
