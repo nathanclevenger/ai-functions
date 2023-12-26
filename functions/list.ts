@@ -80,4 +80,5 @@ export const StreamingList = (config: GPTConfig) => {
       }
     }
   }
+  return { list }
 }
