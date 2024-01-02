@@ -25,7 +25,7 @@ type AIFunctions<T extends Record<string, any> = Record<string,any>> = {
   ) => (
     args: string | object, 
     callOptions?: FunctionCallOptions
-  ) => Promise<{ [P in keyof T[K]]: T[K][P] }>
+  ) => Promise<{ [K in keyof T]: T[K] }>
 }
 
 export const AI = (config: AIConfig = {}) => {
