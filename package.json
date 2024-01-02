@@ -1,6 +1,6 @@
 {
   "name": "ai-functions",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Library for Developing and Managing AI Functions (including OpenAI GPT4 / GPT3.5)",
   "main": "index.js",
   "type": "module",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
-    "json-schema-to-ts": "^2.9.2",
+    "json-schema-to-ts": "^3.0.0",
     "kafkajs": "^2.2.4",
     "lodash-es": "^4.17.21",
     "mongodb": "^6.2.0",

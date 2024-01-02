@@ -3,6 +3,7 @@ import { ChatCompletion, ChatCompletionCreateParamsBase } from 'openai/resources
 import { AIDB, AIDBConfig } from '../db/mongo'
 import { dump } from 'js-yaml'
 import { generateSchema } from '../utils/schema'
+import { FromSchema } from 'json-schema-to-ts'
 
 export type AIConfig = ClientOptions & {
   db?: AIDBConfig
@@ -17,14 +18,14 @@ export type FunctionCallOptions = Omit<ChatCompletionCreateParamsBase, 'messages
   description?: string
 }
 
-type AIFunctions<T extends Record<string, any> = Record<string, any>> = {
+type AIFunctions<T extends Record<string, any> = Record<string,any>> = {
   [K in keyof T]: (
-      returnSchema: T[K], 
-      callOptions?: FunctionCallOptions
+    returnSchema: T[K], 
+    callOptions?: FunctionCallOptions
   ) => (
-      args: string | object, 
-      callOptions?: FunctionCallOptions
-  ) => Promise<T[K]>
+    args: string | object, 
+    callOptions?: FunctionCallOptions
+  ) => Promise<{ [P in keyof T[K]]: T[K][P] }>
 }
 
 export const AI = (config: AIConfig = {}) => {
@@ -78,7 +79,9 @@ export const AI = (config: AIConfig = {}) => {
           }
           if (system) prompt.messages.unshift({ role: 'system', content: system })
           const completion = await openai.chat.completions.create(prompt) as ChatCompletion
-          let data, error
+          const schema = generateSchema(returnSchema)
+          let data: FromSchema<typeof schema>
+          let error
           const { message } = completion.choices?.[0]
           console.log({ message })
           prompt.messages.push(message)
