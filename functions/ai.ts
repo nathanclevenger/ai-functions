@@ -17,6 +17,16 @@ export type FunctionCallOptions = Omit<ChatCompletionCreateParamsBase, 'messages
   description?: string
 }
 
+type AIFunctions<T extends Record<string, any> = Record<string, any>> = {
+  [K in keyof T]: (
+      returnSchema: T[K], 
+      callOptions?: FunctionCallOptions
+  ) => (
+      args: string | object, 
+      callOptions?: FunctionCallOptions
+  ) => Promise<T[K]>
+}
+
 export const AI = (config: AIConfig = {}) => {
   const { model = 'gpt-4-1106-preview', system, ...rest } = config 
   const openai = config.openai ?? new OpenAI(rest)
@@ -32,8 +42,7 @@ export const AI = (config: AIConfig = {}) => {
   //   messages: [{ role: 'user', content: 'hello' }],
   // })
 
-  const ai: Record<string, (args: string | object, callOptions?: FunctionCallOptions) => 
-    (args: string | object, callOptions?: FunctionCallOptions) => Promise<any>> = new Proxy(
+  const ai: AIFunctions = new Proxy(
     {},
     {
       get: (target, functionName: string, receiver) => {
@@ -89,7 +98,7 @@ export const AI = (config: AIConfig = {}) => {
                 : completion.usage.prompt_tokens * 0.00015 + completion.usage.completion_tokens * 0.0002) * 100000
             ) / 100000 : undefined
           // completion.usage = camelcaseKeys(completion.usage)
-          console.log({ data, content, error, cost })
+          console.log({ data, content, error, cost, usage: completion.usage })
           return meta ? { prompt, content, data, error, cost, ...completion } : data ?? content
         }
       },
