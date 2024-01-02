@@ -33,7 +33,7 @@ export const AI = (config: AIConfig = {}) => {
   // })
 
   const ai: Record<string, (args: string | object, callOptions?: FunctionCallOptions) => 
-    (args: string | object, callOptions?: FunctionCallOptions) => Promise<object>> = new Proxy(
+    (args: string | object, callOptions?: FunctionCallOptions) => Promise<any>> = new Proxy(
     {},
     {
       get: (target, functionName: string, receiver) => {
