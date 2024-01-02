@@ -18,15 +18,14 @@ export type FunctionCallOptions = Omit<ChatCompletionCreateParamsBase, 'messages
   description?: string
 }
 
-type AIFunctions<T extends Record<string, any> = Record<string,any>> = {
-  [K in keyof T]: (
-    returnSchema: T[K], 
-    callOptions?: FunctionCallOptions
+type AIFunctions<T = Record<string,string>> = Record<string, (
+    returnSchema: T, 
+    options?: FunctionCallOptions
   ) => (
     args: string | object, 
     callOptions?: FunctionCallOptions
-  ) => Promise<{ [K in keyof T]: T[K] }>
-}
+  ) => Promise<T>
+>
 
 export const AI = (config: AIConfig = {}) => {
   const { model = 'gpt-4-1106-preview', system, ...rest } = config 
@@ -44,10 +43,10 @@ export const AI = (config: AIConfig = {}) => {
   // })
 
   const ai: AIFunctions = new Proxy(
-    {},
+    {} as Record<string, any>,
     {
       get: (target, functionName: string, receiver) => {
-        return (returnSchema: Record<string,any>, options: FunctionCallOptions) => async (args: string | object, callOptions?: FunctionCallOptions) => {
+        target[functionName] = (returnSchema: Record<string,any>, options: FunctionCallOptions) => async (args: string | object, callOptions?: FunctionCallOptions) => {
           console.log(generateSchema(returnSchema))
           const { system, description, model = 'gpt-3.5-turbo', meta = false, ...rest } = { ...options, ...callOptions }
           const prompt: ChatCompletionCreateParamsBase = {
@@ -104,6 +103,7 @@ export const AI = (config: AIConfig = {}) => {
           console.log({ data, content, error, cost, usage: completion.usage })
           return meta ? { prompt, content, data, error, cost, ...completion } : data ?? content
         }
+        return target[functionName]
       },
     }
   )
