@@ -1,12 +1,12 @@
 import { ClientOptions, OpenAI,  } from 'openai'
 import { ChatCompletion, ChatCompletionCreateParamsBase } from 'openai/resources/chat/completions'
-import { AIDB, AIDBConfig } from '../db/mongo'
+// import { AIDB, AIDBConfig } from '../db/mongo'
 import { dump } from 'js-yaml'
 import { generateSchema } from '../utils/schema'
 import { FromSchema } from 'json-schema-to-ts'
 
 export type AIConfig = ClientOptions & {
-  db?: AIDBConfig
+  // db?: AIDBConfig
   openai?: OpenAI
   system?: string
   model?: ChatCompletionCreateParamsBase['model']
