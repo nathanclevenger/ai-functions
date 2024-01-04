@@ -40,8 +40,8 @@ export const AIDB = (args: AIDBConfig | MongoClient) => {
   cacheTTL = config.cacheTTL ?? 1000 * 60 * 60 * 24 * 30
   events =
     typeof config.events === 'string' ? db.collection(config.events) : config.events ?? db.collection('ai-events')
-  queue = typeof config.queue === 'string' ? db.collection(config.queue) : config.queue ?? db.collection('ai-queue')
-  actors = typeof config.queue === 'string' ? db.collection(config.queue) : config.queue ?? db.collection('ai-actors')
+  // queue = typeof config.queue === 'string' ? db.collection(config.queue) : config.queue ?? db.collection('ai-queue')
+  // actors = typeof config.queue === 'string' ? db.collection(config.queue) : config.queue ?? db.collection('ai-actors')
   return { client, db, cache, actors, events, queue, log, send } as AIDB
 }
 
