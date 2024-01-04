@@ -1,9 +1,9 @@
-import { BSON, ObjectId } from 'bson'
+// import { BSON, ObjectId } from 'bson'
 import { AIDB } from '../db/mongo'
 import PQueue from 'p-queue'
 import { chatCompletion, CompletionInput } from '../utils/completion'
 import { createMachine, createActor } from 'xstate'
-import { ChangeStreamInsertDocument, InsertOneResult, UpdateOneModel, UpdateResult } from 'mongodb'
+import { BSON, ObjectId, ChangeStreamInsertDocument, InsertOneResult, UpdateOneModel, UpdateResult } from 'mongodb'
 
 let localQueue
 
