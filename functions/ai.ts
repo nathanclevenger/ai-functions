@@ -23,7 +23,7 @@ type AIFunctions<T = Record<string,string>> = Record<string, (
     options?: FunctionCallOptions
   ) => (
     args: string | object, 
-    callOptions?: FunctionCallOptions
+    callOptions?: Partial<FunctionCallOptions>
   ) => Promise<T>
 >
 
