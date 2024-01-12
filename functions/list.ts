@@ -1,5 +1,5 @@
 import { OpenAI } from 'openai'
-import { ChatCompletionCreateParamsStreaming } from 'openai/resources/index.mjs'
+import { ChatCompletionCreateParamsStreaming } from 'openai/resources'
 import { GPTConfig } from '../types'
 import { chatCompletion } from '../utils/completion'
 

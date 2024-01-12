@@ -1,5 +1,5 @@
 import type { MongoClient, Db, Collection, InsertOneResult, BSON } from 'mongodb'
-import type { ChatCompletion, ChatCompletionCreateParamsNonStreaming } from 'openai/resources/index.mjs'
+import type { ChatCompletion, ChatCompletionCreateParamsNonStreaming } from 'openai/resources'
 import { QueueInput } from '../queue/mongo'
 
 export let client: MongoClient
@@ -49,8 +49,8 @@ export const AIDB = (args: AIDBConfig | MongoClient) => {
 //   Array.isArray(input) ? queue.insertMany(input) : queue.insertOne(input)
 
 const log = (prompt: ChatCompletionCreateParamsNonStreaming, completion: ChatCompletion) => {
-  const system = prompt.messages.find((message) => message.role === 'system')?.content
-  const userMessages = prompt.messages.filter((message) => message.role === 'user').map((message) => message.content)
+  const system = prompt.messages.find((message: any) => message.role === 'system')?.content
+  const userMessages = prompt.messages.filter((message: any) => message.role === 'user').map((message) => message.content)
   const user = userMessages.length === 1 ? userMessages[0] : userMessages
   const content = completion.choices?.[0].message.content
   const tool = completion.choices?.[0].message.tool_calls?.[0].function

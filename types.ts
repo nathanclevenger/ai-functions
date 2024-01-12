@@ -1,5 +1,5 @@
 import type { OpenAI, ClientOptions } from 'openai'
-import type { ChatCompletion, ChatCompletionCreateParamsNonStreaming } from 'openai/resources/index.mjs'
+import type { ChatCompletion, ChatCompletionCreateParamsNonStreaming } from 'openai/resources'
 import type { AIDB } from './db/mongo'
 import type PQueue from 'p-queue'
 
