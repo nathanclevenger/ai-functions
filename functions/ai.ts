@@ -20,7 +20,7 @@ export type FunctionCallOptions = Omit<ChatCompletionCreateParamsBase, 'messages
 
 type AIFunctions<T = Record<string,string>> = Record<string, (
     returnSchema: T, 
-    options?: FunctionCallOptions
+    options?: Partial<FunctionCallOptions>
   ) => (
     args: string | object, 
     callOptions?: Partial<FunctionCallOptions>
