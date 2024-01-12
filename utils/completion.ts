@@ -1,5 +1,5 @@
 import { OpenAI, ClientOptions } from 'openai'
-import type { ChatCompletion, ChatCompletionCreateParamsNonStreaming } from 'openai/resources/index.mjs'
+import type { ChatCompletion, ChatCompletionCreateParamsNonStreaming } from 'openai/resources'
 import { GPTConfig } from '../types'
 
 export type CompletionInput = GPTConfig &
