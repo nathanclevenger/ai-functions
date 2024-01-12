@@ -1,11 +1,12 @@
 {
   "name": "ai-functions",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "Library for Developing and Managing AI Functions (including OpenAI GPT4 / GPT3.5)",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "builds": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && ./fixup",
     "format": "prettier --write .",
     "test": "dotenv -- vitest --globals"
   },
