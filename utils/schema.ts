@@ -53,6 +53,18 @@ export const generateSchema = (propDescriptions: Record<string, string | Record<
     } else if (typeof description === 'object' && !Array.isArray(description)) {
       // Recursive call for nested objects
       properties[key] = generateSchema(description)
+
+    } else if (Array.isArray(description)) {
+      // Recursive call for nested objects
+      const [ itemValue ] = description
+      const itemType = typeof itemValue
+      if (itemType == 'string') {
+        // If the item is a string, then it is an array of strings
+        return { type: 'array', description: itemValue, items: { type: 'string' }}
+      } else if (itemType == 'object') {
+        // If the item is an object, then it is an array of objects, and get the schema for the object
+        return { type: 'array', items: generateSchema(itemValue)}
+      }
     } else {
       throw new Error(`Invalid description for key "${key}".`)
     }
