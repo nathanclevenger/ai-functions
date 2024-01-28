@@ -28,7 +28,7 @@ type AIFunctions<T = Record<string,string>> = Record<string, (
 >
 
 export const AI = (config: AIConfig = {}) => {
-  const { model = 'gpt-4-1106-preview', system, ...rest } = config 
+  const { model = 'gpt-4-turbo-preview', system, ...rest } = config 
   const openai = config.openai ?? new OpenAI(rest)
   // const { client, db, cache, events, queue } = config.db ? AIDB(config.db) : {}
   // const prompt = {
@@ -48,7 +48,7 @@ export const AI = (config: AIConfig = {}) => {
       get: (target, functionName: string, receiver) => {
         target[functionName] = (returnSchema: Record<string,any>, options: FunctionCallOptions) => async (args: string | object, callOptions?: FunctionCallOptions) => {
           console.log(generateSchema(returnSchema))
-          const { system, description, model = 'gpt-3.5-turbo', meta = false, ...rest } = { ...options, ...callOptions }
+          const { system, description, model = config.model ?? 'gpt-4-turbo-preview', meta = false, ...rest } = { ...options, ...callOptions }
           const prompt: ChatCompletionCreateParamsBase = {
             model,
             messages: [
