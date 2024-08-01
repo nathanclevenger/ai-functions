@@ -4,6 +4,8 @@ import { ChatCompletion, ChatCompletionCreateParamsBase } from 'openai/resources
 import { dump } from 'js-yaml'
 import { generateSchema } from '../utils/schema'
 import { FromSchema } from 'json-schema-to-ts'
+import { GPT } from './gpt'
+import { StreamingList } from './list'
 
 export type AIConfig = ClientOptions & {
   // db?: AIDBConfig
@@ -30,6 +32,8 @@ type AIFunctions<T = Record<string,string>> = Record<string, (
 export const AI = (config: AIConfig = {}) => {
   const { model = 'gpt-4-turbo-preview', system, ...rest } = config 
   const openai = config.openai ?? new OpenAI(rest)
+  const { gpt } = GPT(config)
+  const { list } = StreamingList(config)
   // const { client, db, cache, events, queue } = config.db ? AIDB(config.db) : {}
   // const prompt = {
   //   model,
@@ -107,5 +111,5 @@ export const AI = (config: AIConfig = {}) => {
       },
     }
   )
-  return { ai, openai } //, client, db, cache, events, queue }
+  return { ai, openai, gpt, list } //, client, db, cache, events, queue }
 }
