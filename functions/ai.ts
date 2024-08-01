@@ -30,7 +30,7 @@ type AIFunctions<T = Record<string,string>> = Record<string, (
 >
 
 export const AI = (config: AIConfig = {}) => {
-  const { model = 'gpt-4-turbo-preview', system, ...rest } = config 
+  const { model = 'gpt-4o', system, ...rest } = config 
   const openai = config.openai ?? new OpenAI(rest)
   const { gpt } = GPT(config)
   const { list } = StreamingList(config)

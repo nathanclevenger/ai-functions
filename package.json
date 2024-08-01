@@ -1,6 +1,6 @@
 {
   "name": "ai-functions",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "description": "Library for Developing and Managing AI Functions (including OpenAI GPT4 / GPT3.5)",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
@@ -48,7 +48,7 @@
     "kafkajs": "^2.2.4",
     "lodash-es": "^4.17.21",
     "mongodb": "^6.2.0",
-    "openai": "^4.26.0",
+    "openai": "^4.53.2",
     "p-queue": "^7.4.1",
     "partial-json-parser": "^1.2.2",
     "xstate": "^5.0.0-beta.40"
